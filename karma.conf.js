@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/my-habit-tracker-web'),
+      dir: require('path').join(__dirname, './coverage/easy-crud-web'),
       subdir: '.',
       reporters: [
         { type: 'html' },
