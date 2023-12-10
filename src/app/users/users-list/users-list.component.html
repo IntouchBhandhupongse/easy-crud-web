@@ -1,0 +1,99 @@
+<mat-card class="mat-card-control">
+    <mat-card-content>
+        <form [formGroup]="form_search" autocomplete="off">
+            <div fxLayout="column">
+
+                <div fxLayout="row" fxLayoutGap="15px grid" fxLayoutAlign="start center">
+
+                    <!-- Name -->
+                    <mat-label fxFlex="150px" class="label-control text-right">Name :</mat-label>
+                    <mat-form-field fxFlex="15%" class="input-control">
+                        <mat-label>Firstname Lastname</mat-label>
+                        <input matInput formControlName="name">
+                    </mat-form-field>
+
+                    <!-- Email -->
+                    <mat-label fxFlex="100px" class="label-control text-right">Email :</mat-label>
+                    <mat-form-field fxFlex="15%" class="input-control">
+                        <mat-label>Email</mat-label>
+                        <input matInput formControlName="email">
+                    </mat-form-field>
+
+                    <!-- Tel -->
+                    <mat-label fxFlex="100px" class="label-control text-right">Tel :</mat-label>
+                    <mat-form-field fxFlex="15%" class="input-control">
+                        <mat-label>Tel</mat-label>
+                        <input matInput formControlName="tel">
+                    </mat-form-field>
+
+                    <!-- Department -->
+                    <mat-label fxFlex="100px" class="label-control text-right">Department :</mat-label>
+                    <mat-form-field fxFlex="15%" class="input-control">
+                        <mat-label>Department</mat-label>
+                        <input matInput formControlName="department">
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="row" fxLayoutAlign="start start">
+                    <mat-label fxFlex="150px"></mat-label>
+                    <button mat-raised-button (click)="clear()">ล้าง</button>
+                </div>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>
+
+<mat-progress-bar mode="indeterminate" *ngIf="isLoadingData"></mat-progress-bar>
+
+<table mat-table [dataSource]="dataSource" class="table-control" #table matSort>
+
+    <!-- Checkbox Column -->
+    <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+            <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()" [indeterminate]="selection.hasValue() && !isAllSelected()">
+            </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row">
+            <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)">
+            </mat-checkbox>
+        </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.first_name}} {{element.last_name}} </td>
+    </ng-container>
+
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <!-- Tel Column -->
+    <ng-container matColumnDef="tel">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Tel </th>
+        <td mat-cell *matCellDef="let element"> {{element.tel}} </td>
+    </ng-container>
+
+    <!-- Department Column -->
+    <ng-container matColumnDef="department">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Department </th>
+        <td mat-cell *matCellDef="let element"> {{element.department}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nodata">
+        <td mat-footer-row *matFooterCellDef [colSpan]="Coloumn.length" style="text-align: center;">ไม่มีข้อมูล</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="Coloumn"></tr>
+    <tr mat-row *matRowDef="let row; columns: Coloumn;" (click)="selection.toggle(row)"></tr>
+    <tr mat-footer-row [hidden]="dataSource.data.length > 0 || isLoadingData" *matFooterRowDef="['nodata']"></tr>
+</table>
+<mat-paginator [pageSizeOptions]="pageSizeOptions" showFirstLastButtons></mat-paginator>
+
+
+<!-- <div>
+    {{selection.selected| json}}
+</div> -->

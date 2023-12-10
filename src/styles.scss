@@ -1,1 +1,137 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+
+    p {
+        line-height: 40px;
+    }
+}
+
+.full-width {
+    width: 100%;
+}
+
+
+// Text Align
+.text-right {
+    text-align: right !important;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+// customize input
+.form-control {
+    .mat-form-field-flex {
+        padding: 0 0.75em 0 0.75em !important;
+
+        .mat-form-field-infix {
+            border-top: none;
+            // padding: 2px 0 2px 0 !important;
+            padding: 8px 0 8px 0 !important;
+
+            .mat-input-element {
+                line-height: 24px !important;
+                resize: none !important;
+            }
+
+            .mat-select {
+                line-height: 24px !important;
+
+                .mat-select-arrow-wrapper {
+                    display: flex;
+                    vertical-align: middle;
+                }
+            }
+        }
+
+        .mat-form-field-prefix,
+        .mat-form-field-suffix {
+            align-self: center;
+        }
+    }
+
+    .mat-form-field-wrapper {
+        padding-bottom: 0px !important;
+
+        .mat-form-field-underline {
+            bottom: 0px;
+        }
+
+        .mat-form-field-subscript-wrapper {
+            // padding: 10px 0;
+            padding: 0px;
+            margin-top: 25px;
+            font-size: 85%;
+        }
+    }
+
+    input::-webkit-input-placeholder {
+        line-height: 22px;
+    }
+}
+
+.input-control {
+    .mat-form-field-infix {
+        padding: 7px 0px 0px 0px;
+        line-height: 30px;
+    }
+
+    .mat-form-field-subscript-wrapper {
+        line-height: 17px;
+    }
+}
+
+// label customize
+.label-control {
+    align-self: center;
+}
+
+// table control
+.table-control {
+    width: 100%;
+    border-collapse: collapse;
+
+    thead {
+        tr {
+
+            th,
+            td {
+                padding: 0px 10px !important;
+            }
+        }
+    }
+
+    tbody {
+        tr {
+
+            th,
+            td {
+                padding: 3px 10px !important;
+            }
+        }
+    }
+
+    tfoot {
+        tr {
+
+            th,
+            td {
+                padding: 0px 10px;
+            }
+        }
+    }
+}
+
+.mat-card-control {
+    padding: 10px !important;
+}
