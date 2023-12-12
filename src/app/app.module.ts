@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { NgxMaskDirective,NgxMaskPipe,provideNgxMask } from 'ngx-mask';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,8 +18,12 @@ import { MaterialModule } from './material/material.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule.forRoot(),
+    FlexLayoutModule,
+    NgxMaskDirective, 
+    NgxMaskPipe,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [provideNgxMask(),],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

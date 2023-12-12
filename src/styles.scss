@@ -4,6 +4,7 @@ body {
 }
 
 body {
+    background-color: lightgray;
     margin: 0;
 
     p {
@@ -81,13 +82,13 @@ body {
 }
 
 .input-control {
-    .mat-form-field-infix {
-        padding: 7px 0px 0px 0px;
-        line-height: 30px;
+    .mat-mdc-text-field-wrapper {
+        margin: 0px 0px 2px 0px;
+        line-height: 10px !important;
     }
 
-    .mat-form-field-subscript-wrapper {
-        line-height: 17px;
+    .mat-mdc-form-field-subscript-wrapper {
+        line-height: 20px;
     }
 }
 
@@ -134,4 +135,9 @@ body {
 
 .mat-card-control {
     padding: 10px !important;
+    margin: 10px;
+}
+
+.padding-none {
+    padding: 0 !important;
 }

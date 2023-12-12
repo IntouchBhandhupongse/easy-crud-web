@@ -1,0 +1,23 @@
+@keyframes smooth-appear {
+    to {
+        margin-top: 0%;
+        opacity: 1;
+    }
+}
+
+.container {
+    position: absolute;
+    margin-top: 30px;
+    opacity: 0;
+    left: 210px;
+    transform: translateX(-50%);
+    animation: smooth-appear 0.3s ease forwards;
+}
+
+.mat-mdc-row .mat-mdc-cell {
+    cursor: pointer;
+}
+
+.mat-mdc-row:hover .mat-mdc-cell {
+    background-color: #6e6e6e;
+}

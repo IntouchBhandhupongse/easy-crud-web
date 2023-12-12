@@ -1,0 +1,90 @@
+<h2 mat-dialog-title class="text-blue"><b>{{data ? "Edit" : "Add"}} User</b></h2>
+<div mat-dialog-content>
+    <form [formGroup]="form" autocomplete="off">
+        <div fxLayout="column" fxLayoutAlign="none none" fxLayoutGap="10px">
+
+            <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start center" style="color: white;">
+                <!-- First Name -->
+                <div fxLayout="column" fxFlex="50%">
+                    <mat-label>First Name</mat-label>
+                </div>
+
+                <!-- Last Name -->
+                <div fxLayout="column" fxFlex="50%">
+                    <mat-label>Last Name</mat-label>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start center">
+                <!-- First Name -->
+                <div fxLayout="column" fxFlex="50%">
+                    <mat-form-field fxFlex class="input-control">
+                        <mat-label>Firstname</mat-label>
+                        <input matInput formControlName="first_name" required maxlength="50">
+                    </mat-form-field>
+                </div>
+
+                <!-- Last Name -->
+                <div fxLayout="column" fxFlex="50%">
+                    <mat-form-field fxFlex class="input-control">
+                        <mat-label>Lastname</mat-label>
+                        <input matInput formControlName="last_name" required maxlength="50">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start center" style="color: white;">
+                <!-- Email -->
+                <div fxLayout="column" fxFlex="50%">
+                    <mat-label>Email</mat-label>
+                </div>
+
+                <!-- Tel -->
+                <div fxLayout="column" fxFlex="50%">
+                    <mat-label>Tel</mat-label>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start center">
+                <!-- Email -->
+                <div fxLayout="column" fxFlex="50%">
+                    <mat-form-field fxFlex class="input-control">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="email" formControlName="email" required>
+                    </mat-form-field>
+                </div>
+
+                <!-- Tel -->
+                <div fxLayout="column" fxFlex="50%">
+                    <mat-form-field fxFlex class="input-control">
+                        <mat-label>Tel</mat-label>
+                        <input matInput type="tel" formControlName="tel" required mask="000-000-0000">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start center" style="color: white;">
+                <!-- Department -->
+                <mat-label>Department</mat-label>
+            </div>
+            <div fxLayout="row" fxLayoutGap="15px" fxLayoutAlign="start center">
+                <!-- Department -->
+                <mat-form-field fxFlex class="input-control">
+                    <mat-label>Department</mat-label>
+                    <mat-select formControlName="department">
+                        <mat-option value="">None</mat-option>
+                        <mat-option *ngFor="let item of DepartmentList;" [value]="item">{{item}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            
+
+
+        </div>
+    </form>
+</div>
+
+<div mat-dialog-actions fxLayout="row" fxLayoutGap="10px" style="padding-top: 13px; border-top: 1px solid lightgray;">
+    <div fxFlex fxLayoutGap="10px" style="display: flex; justify-content:space-between;">
+        <button mat-raised-button type="button" color="warn" (click)="close()">Close</button>
+        <button mat-raised-button type="submit" color="accent" (click)="submit()" form="ngForm">Save</button>
+    </div>
+</div>
