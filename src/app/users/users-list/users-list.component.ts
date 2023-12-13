@@ -79,6 +79,8 @@ export class UsersListComponent {
     await this.getUserList();
     this.form_search.valueChanges.subscribe(form => {
       this.dataSource.filter = JSON.stringify(form);
+      // console.log(this.dataSource);
+      
     });
   }
 
@@ -175,8 +177,8 @@ export class UsersListComponent {
         Swal.fire({
           title: 'Processing...',
           imageUrl: "assets/loading/loading-buffering.gif",
-          imageWidth: 100,
-          imageHeight: 100,
+          imageWidth: 200,
+          imageHeight: 200,
           timerProgressBar: true,
           showConfirmButton: false,
           allowOutsideClick: false,

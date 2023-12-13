@@ -71,8 +71,8 @@ export class UserDetailDialogComponent implements OnInit {
           Swal.fire({
             title: 'Processing...',
             imageUrl: "assets/loading/loading-buffering.gif",
-            imageWidth: 100,
-            imageHeight: 100,
+            imageWidth: 200,
+            imageHeight: 200,
             timerProgressBar: true,
             showConfirmButton: false,
             allowOutsideClick: false,
@@ -119,8 +119,8 @@ export class UserDetailDialogComponent implements OnInit {
           Swal.fire({
             title: 'Processing...',
             imageUrl: "assets/loading/loading-buffering.gif",
-            imageWidth: 100,
-            imageHeight: 100,
+            imageWidth: 200,
+            imageHeight: 200,
             timerProgressBar: true,
             showConfirmButton: false,
             allowOutsideClick: false,
