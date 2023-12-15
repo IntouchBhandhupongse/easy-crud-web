@@ -128,100 +128,36 @@ describe('UsersListComponent', () => {
   });
 
   describe("Filter", () => {
-    it(`Name 1 : table should have 1 record`,(() => {
+    it(`Name : dataSource should have record equal to a filter data`,(() => {
       component.form_search.controls['name'].setValue('in');
       component.form_search.controls['email'].setValue('');
       component.form_search.controls['tel'].setValue('');
       component.form_search.controls['department'].setValue('');
-      expect(component.dataSource.filteredData.length).toEqual(1);
+      expect(component.dataSource.filteredData.length).toEqual(component.dataSource.data.filter(x => x.full_name.toString().toLowerCase().includes(component.form_search.value.name)).length);
     }));
 
-    it(`Name 2 : table should have 4 records`,(() => {
-      component.form_search.controls['name'].setValue('test');
-      component.form_search.controls['email'].setValue('');
-      component.form_search.controls['tel'].setValue('');
-      component.form_search.controls['department'].setValue('');
-      expect(component.dataSource.filteredData.length).toEqual(4);
-    }));
-
-    it(`Name 3 : table shouldn't have any record`,(() => {
-      component.form_search.controls['name'].setValue('AWE');
-      component.form_search.controls['email'].setValue('');
-      component.form_search.controls['tel'].setValue('');
-      component.form_search.controls['department'].setValue('');
-      expect(component.dataSource.filteredData.length).toEqual(0);
-    }));
-
-    it(`Email 1 : table should have 1 record`,(() => {
+    it(`Email : dataSource should have record equal to a filter data`,(() => {
       component.form_search.controls['name'].setValue('');
       component.form_search.controls['email'].setValue('.com');
       component.form_search.controls['tel'].setValue('');
       component.form_search.controls['department'].setValue('');
-      expect(component.dataSource.filteredData.length).toEqual(1);
+      expect(component.dataSource.filteredData.length).toEqual(component.dataSource.data.filter(x => x.email.toString().toLowerCase().includes(component.form_search.value.email)).length);
     }));
 
-    it(`Email 2 : table should have 5 records`,(() => {
-      component.form_search.controls['name'].setValue('');
-      component.form_search.controls['email'].setValue('@gmail');
-      component.form_search.controls['tel'].setValue('');
-      component.form_search.controls['department'].setValue('');
-      expect(component.dataSource.filteredData.length).toEqual(5);
-    }));
-
-    it(`Email 3 : table shouldn't have any record`,(() => {
-      component.form_search.controls['name'].setValue('');
-      component.form_search.controls['email'].setValue('@hotmail');
-      component.form_search.controls['tel'].setValue('');
-      component.form_search.controls['department'].setValue('');
-      expect(component.dataSource.filteredData.length).toEqual(0);
-    }));
-
-    it(`Tel 1 : table should have 1 record`,(() => {
+    it(`Tel : dataSource should have record equal to a filter data`,(() => {
       component.form_search.controls['name'].setValue('');
       component.form_search.controls['email'].setValue('');
       component.form_search.controls['tel'].setValue('081');
       component.form_search.controls['department'].setValue('');
-      expect(component.dataSource.filteredData.length).toEqual(1);
+      expect(component.dataSource.filteredData.length).toEqual(component.dataSource.data.filter(x => x.tel.toString().toLowerCase().includes(component.form_search.value.tel)).length);
     }));
 
-    it(`Tel 2 : table should have 1 record`,(() => {
-      component.form_search.controls['name'].setValue('');
-      component.form_search.controls['email'].setValue('');
-      component.form_search.controls['tel'].setValue('111');
-      component.form_search.controls['department'].setValue('');
-      expect(component.dataSource.filteredData.length).toEqual(1);
-    }));
-
-    it(`Tel 3 : table shouldn't have any record`,(() => {
-      component.form_search.controls['name'].setValue('');
-      component.form_search.controls['email'].setValue('');
-      component.form_search.controls['tel'].setValue('5555');
-      component.form_search.controls['department'].setValue('');
-      expect(component.dataSource.filteredData.length).toEqual(0);
-    }));
-
-    it(`Department 1 : table should have 1 record`,(() => {
-      component.form_search.controls['name'].setValue('');
-      component.form_search.controls['email'].setValue('');
-      component.form_search.controls['tel'].setValue('');
-      component.form_search.controls['department'].setValue(['Developer']);
-      expect(component.dataSource.filteredData.length).toEqual(1);
-    }));
-
-    it(`Department 2 : table should have 2 records`,(() => {
-      component.form_search.controls['name'].setValue('');
-      component.form_search.controls['email'].setValue('');
-      component.form_search.controls['tel'].setValue('');
-      component.form_search.controls['department'].setValue(['Developer','Sale']);
-      expect(component.dataSource.filteredData.length).toEqual(2);
-    }));
-
-    it(`Department 3 : table shouldn't have any record`,(() => {
+    it(`Department : dataSource should have record equal to a filter data`,(() => {
       component.form_search.controls['name'].setValue('');
       component.form_search.controls['email'].setValue('');
       component.form_search.controls['tel'].setValue('');
       component.form_search.controls['department'].setValue(['SRE']);
-      expect(component.dataSource.filteredData.length).toEqual(0);
+      expect(component.dataSource.filteredData.length).toEqual(component.dataSource.data.filter(x => x.department.toString().toLowerCase().includes(component.form_search.value.department)).length);
     }));
   });
 

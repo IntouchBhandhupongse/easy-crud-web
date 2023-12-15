@@ -122,11 +122,11 @@
             <!-- Actions Column -->
             <ng-container matColumnDef="actions">
                 <th mat-header-cell *matHeaderCellDef class="text-center"> Actions </th>
-                <td mat-cell *matCellDef="let element" class="text-center" (click)="selection.toggle(element)">
-                    <button id="edit_button" (click)="opendialog(element)" mat-icon-button>
+                <td mat-cell *matCellDef="let element index as i" class="text-center" (click)="selection.toggle(element)">
+                    <button [id]="'edit_button_' + i" (click)="opendialog(element)" mat-icon-button>
                         <mat-icon>edit</mat-icon>
                     </button>
-                    <button id="del_button" (click)="remove([element])" mat-icon-button style="color: red;">
+                    <button [id]="'del_button_' + i" (click)="remove([element])" mat-icon-button style="color: red;">
                         <mat-icon>delete_outline</mat-icon>
                     </button>
                 </td>

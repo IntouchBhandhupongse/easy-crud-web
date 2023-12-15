@@ -165,7 +165,7 @@ export class UsersListComponent {
 
     Swal.fire({
       title: 'Are you sure ?',
-      text: 'Do you really want to delete ' + data.length + ' users? This process cannot be undone',
+      text: 'Do you really want to delete ' + data.length + ' user' + (data.length > 1 ? "s" : "" ) + '? This process cannot be undone',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#fa8072',
